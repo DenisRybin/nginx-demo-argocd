@@ -9,4 +9,4 @@ service:
   type: NodePort
   port: 80
 
-pageTitle: Hello from Helm ++ ArgoCD!
+pageTitle: Hello from Helm +++ ArgoCD!
