@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx-demo
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: nginx-demo
@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx-demo-argocd:v1
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80
 
